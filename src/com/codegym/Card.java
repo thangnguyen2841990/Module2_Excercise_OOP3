@@ -1,28 +1,23 @@
 package com.codegym;
 
-public class TheMuon extends SinhVien{
+public class Card {
     private int number;
     private String toDate;
     private String formDate;
     private String idOfBook;
+    private Student student;
 
-    public TheMuon() {
+    public Card() {
     }
 
-    public TheMuon(int number, String toDate, String formDate, String idOfBook) {
+    public Card(int number, String toDate, String formDate, String idOfBook, Student student) {
         this.number = number;
         this.toDate = toDate;
         this.formDate = formDate;
         this.idOfBook = idOfBook;
+        this.student = student;
     }
 
-    public TheMuon(String name, String mssv, String birthDay, String className, int number, String toDate, String formDate, String idOfBook) {
-        super(name, mssv, birthDay, className);
-        this.number = number;
-        this.toDate = toDate;
-        this.formDate = formDate;
-        this.idOfBook = idOfBook;
-    }
 
     public int getNumber() {
         return number;
@@ -56,9 +51,17 @@ public class TheMuon extends SinhVien{
         this.idOfBook = idOfBook;
     }
 
+    public Student getstudent() {
+        return student;
+    }
+
+    public void setstudent(Student student) {
+        this.student = student;
+    }
+
     @Override
     public String toString() {
-        return "Thông tin sinh viên: "+ super.toString()+"\n"+
+        return "Thông tin sinh viên: "+ student.toString()+"\n"+
                 "Số phiếu: "+ getNumber()+", Ngày mượn: "+getToDate()+", Hạn trả: "+getFormDate()+", Số hiệu sách: "+
                 getIdOfBook();
     }

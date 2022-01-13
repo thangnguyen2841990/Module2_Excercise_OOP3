@@ -7,19 +7,21 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        int size;
+        CardManagement cardManagement = new CardManagement();
         System.out.println("----Nhập thông tin sinh viên mượn sách----");
-        System.out.println("Nhập số lượng sinh viên mượn sách:  ");
-        size = scanner.nextInt();
-        TheMuon[] TheMuon = new TheMuon[size];
-        for (int i = 0; i < TheMuon.length; i++) {
-            System.out.println("Nhập thông tin khách hàng thứ: " + (i + 1));
-            TheMuon[i] = inputPerson();
+        System.out.println("Nhập vị trí thêm thẻ mượn: ");
+        int index = scanner.nextInt();
+        if (index - 1 < 0 || index - 1 > cardManagement.cards.length) {
+            System.out.println("Vị trí không xác định");
+        } else {
+            Card newCard = inputPerson();
+            cardManagement.addNewCard(index, newCard);
+            cardManagement.displayAllCard();
         }
-        showAll(TheMuon);
+
     }
 
-    public static TheMuon inputPerson() {
+    public static Card inputPerson() {
         scanner.nextLine();
         System.out.println("Nhập tên sinh viên");
         String name = scanner.nextLine();
@@ -39,12 +41,8 @@ public class Main {
         System.out.println("Nhập số hiệu sách: ");
         String codeOfBook = scanner.nextLine();
 
-        return new TheMuon(name,number,bỉthDay,className,number1,toDate,formDate,codeOfBook);
+        return new Card(number1,toDate,formDate,codeOfBook,new Student(name,number,bỉthDay,className));
     }
 
-    public static void showAll(TheMuon[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
     }
-}
+

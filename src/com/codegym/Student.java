@@ -1,15 +1,15 @@
 package com.codegym;
 
-public class SinhVien {
+public class Student {
     private String name;
     private String mssv;
     private String birthDay;
     private String className;
 
-    public SinhVien() {
+    public Student() {
     }
 
-    public SinhVien(String name, String mssv, String birthDay, String className) {
+    public Student(String name, String mssv, String birthDay, String className) {
         this.name = name;
         this.mssv = mssv;
         this.birthDay = birthDay;
